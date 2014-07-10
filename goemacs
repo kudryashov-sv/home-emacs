@@ -1,0 +1,55 @@
+#!/bin/zsh
+
+template_module() {
+    module=`basename $1 .el.in`
+    echo -n "create $module.el ... "
+    sed  "s,@MY_EMACS_SITE@,$MY_EMACS_SITE_LISP,g" "$1" > "$2/$module.el" || exit 1
+echo "ok"    
+}
+
+template_modules() {
+    echo "template modules processing"
+    echo "site lisp: $2"
+    for file in "$1"/*.el.in; do
+	template_module "$file" "$MY_EMACS_SITE_LISP" || exit 1
+    done
+}
+
+# read environments
+. ./.environment
+
+# prepare install directory
+echo -n "Cleanup $MY_EMACS_INSTALL_ROOT ... "
+rm -rf "$MY_EMACS_INSTALL_ROOT" || exit 1
+echo "ok"
+mkdir -p "$MY_EMACS_INSTALL_ROOT" || exit 1
+
+# install required packages
+# sudo apt-get -y install $DEB_PACKAGES || exit 1
+
+# make site-lisp directory
+MY_EMACS_SITE_LISP="$MY_EMACS_INSTALL_ROOT/site-lisp"
+echo -n "create site-lisp director $MY_EMACS_SITE_LISP ... "
+mkdir -p "$MY_EMACS_SITE_LISP" || exit 1
+echo "ok"
+
+template_modules "$MY_EMACS_TEMPLATE_DIR" "$MY_EMACS_SITE_LISP" || exit 1
+
+# make start script
+echo -n "create start script ... "
+sed "s,@MY_EMACS_SITE@,$MY_EMACS_SITE_LISP,g" "$MY_EMACS_TEMPLATE_DIR/my-emacs-start.in" > "$MY_EMACS_INSTALL_ROOT/my-emacs-start" || exit 1
+chmod +x "$MY_EMACS_INSTALL_ROOT/my-emacs-start" || exit 1
+echo "ok"
+
+echo -n "copy *.el files ... "
+cp "$MY_EMACS_TEMPLATE_DIR"/*.el "$MY_EMACS_SITE_LISP/"
+echo "ok"
+
+echo "install pakcages ... "
+emacs24 -l "$MY_EMACS_SITE_LISP/install-my-packages.el"
+echo "ok"
+
+
+
+
+

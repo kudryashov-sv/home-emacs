@@ -1,0 +1,3 @@
+#!/bin/sh
+
+emacs24 -Q --daemon -l @MY_EMACS_SITE@/load.el 2&> /dev/null

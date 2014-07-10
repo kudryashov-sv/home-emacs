@@ -1,0 +1,8 @@
+(require 'package)
+
+(package-initialize)
+
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(set 'package-user-dir "@MY_EMACS_SITE@/packages")

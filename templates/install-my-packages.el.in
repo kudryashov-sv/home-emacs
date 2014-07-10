@@ -1,0 +1,11 @@
+;; add common load path
+(add-to-list 'load-path "@MY_EMACS_SITE@")
+
+(load-library "my-packages-init")
+
+(package-refresh-contents)
+(package-install 'zenburn-theme)
+(package-install 'anti-zenburn-theme)
+(package-install 'yasnippet)
+
+(kill-emacs)

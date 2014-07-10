@@ -1,0 +1,7 @@
+#!/bin/bash
+
+. ./.environment
+
+apt-get -y remove $DEB_PACKAGES
+rm -rf "$MY_EMACS_INSTALL_ROOT"
+
