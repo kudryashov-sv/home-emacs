@@ -25,7 +25,7 @@ echo "ok"
 mkdir -p "$MY_EMACS_INSTALL_ROOT" || exit 1
 
 # install required packages
-# sudo apt-get -y install $DEB_PACKAGES || exit 1
+sudo apt-get -y install $DEB_PACKAGES || exit 1
 
 # make site-lisp directory
 MY_EMACS_SITE_LISP="$MY_EMACS_INSTALL_ROOT/site-lisp"
