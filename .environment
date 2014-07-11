@@ -1,3 +1,4 @@
-export HOME_EMACS_INSTALL_ROOT="$PWD/install"
+export HOME_EMACS_INSTALL_ROOT="$HOME/.home-emacs"
 export HOME_EMACS_TEMPLATE_DIR="$PWD/templates"
+export HOME_EMACS_FILES_DIR="$PWD/files"
 

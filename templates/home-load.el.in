@@ -4,8 +4,6 @@
 ;; init packages
 (load-library "home-packages-init")
 
-(message "packages root: %s" 'package-user-dir)
-
 ;; load customizations
 (load "home-emacs-custom.el")
 

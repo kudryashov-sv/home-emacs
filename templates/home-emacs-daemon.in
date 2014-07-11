@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
-emacs -Q --daemon -l @HOME_EMACS_SITE_LISP@/load.el 2&> /dev/null
+(cd "$HOME"; emacs -Q --daemon -l @HOME_EMACS_SITE_LISP@/home-load.el 2&> /dev/null)
 

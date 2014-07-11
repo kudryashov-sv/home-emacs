@@ -32,7 +32,11 @@ echo "ok"
 template_modules "$HOME_EMACS_TEMPLATE_DIR" "$HOME_EMACS_SITE_LISP" || exit 1
 
 echo "copy *.el files ... "
-cp -v "$HOME_EMACS_TEMPLATE_DIR"/*.el "$HOME_EMACS_SITE_LISP/"
+for file in "$HOME_EMACS_FILES_DIR/"*.el; do
+    destination="$HOME_EMACS_SITE_LISP/"
+    echo "Copy $file -> $destination"
+    cp "$file" "$destination"
+done
 echo "ok"
 
 # make start script
@@ -43,6 +47,6 @@ echo "ok"
 
 # install emacs packages and exit
 echo "install pakcages $HOME_EMACS_SITE_LISP/home-install-packages.el ... "
-emacs24 -l "$HOME_EMACS_SITE_LISP/home-install-packages.el"
+emacs -l "$HOME_EMACS_SITE_LISP/home-install-packages.el"
 echo "ok"
 
