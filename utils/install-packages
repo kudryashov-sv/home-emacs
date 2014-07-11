@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+. ./.environment
+
+echo "Install pakcages $HOME_EMACS_SITE_LISP/home-install-packages.el ... "
+emacs -l "$HOME_EMACS_SITE_LISP/home-install-packages.el"
+echo "OK"
+

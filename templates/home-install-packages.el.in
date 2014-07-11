@@ -7,6 +7,9 @@
 
 (package-install 'zenburn-theme)
 (package-install 'anti-zenburn-theme)
+(package-install 'projectile)
+(package-install 'google-this)
+(package-install 'flycheck)
 
 (kill-emacs)
 

@@ -1,4 +1,4 @@
-;; no toolbar, menu and scrollbar
+;;; home-emacs-custom.el --- emacs customizations
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
