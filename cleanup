@@ -2,6 +2,14 @@
 
 . ./.environment
 
-apt-get -y remove $DEB_PACKAGES
-rm -rf "$MY_EMACS_INSTALL_ROOT"
+echo "Remove $HOME_EMACS_INSTALL_ROOT?"  
+select yn in "yes" "no"; do  
+case $REPLY in
+    y|yes ) break;;
+    n|no ) exit 1;;
+    *) echo "unmatched: $REPLY";;
+esac
+done
+
+rm -rf "$HOME_EMACS_INSTALL_ROOT"
 

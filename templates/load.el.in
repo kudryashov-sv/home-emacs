@@ -1,7 +1,0 @@
-;; add common load path
-(add-to-list 'load-path "@MY_EMACS_SITE@")
-
-(load-library "my-packages-init")
-
-;; load customizations
-(load "emacs-custom.el")

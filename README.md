@@ -1,4 +1,5 @@
-my-emacs
+home-emacs
 ========
 
-setup my emacs
+Setup emacs to home
+

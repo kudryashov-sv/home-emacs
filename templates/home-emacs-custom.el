@@ -4,7 +4,7 @@
 (scroll-bar-mode -1)
 
 ;; load zenburn
-(load-theme 'zenburn t)
+(load-theme 'anti-zenburn t)
 
 ;; auto-save options
 (setq backup-directory-alist

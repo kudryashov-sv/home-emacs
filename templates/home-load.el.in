@@ -1,0 +1,11 @@
+;; add common load path
+(add-to-list 'load-path "@HOME_EMACS_SITE_LISP@")
+
+;; init packages
+(load-library "home-packages-init")
+
+(message "packages root: %s" 'package-user-dir)
+
+;; load customizations
+(load "home-emacs-custom.el")
+

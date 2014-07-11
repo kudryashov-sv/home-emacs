@@ -1,0 +1,48 @@
+#!/bin/zsh
+
+template_module() {
+    module=`basename $1 .el.in`
+    echo -n "create $module.el ... "
+    sed  "s,@HOME_EMACS_SITE_LISP@,$HOME_EMACS_SITE_LISP,g" "$1" > "$2/$module.el" || exit 1
+echo "ok"    
+}
+
+template_modules() {
+    echo "template modules processing"
+    echo "site lisp: $2"
+    for file in "$1"/*.el.in; do
+	template_module "$file" "$HOME_EMACS_SITE_LISP" || exit 1
+    done
+}
+
+# read environments
+. ./.environment
+
+# prepare install directory
+echo -n "Cleanup $HOME_EMACS_INSTALL_ROOT ... "
+. ./cleanup
+mkdir -p "$HOME_EMACS_INSTALL_ROOT" || exit 1
+
+# make site-lisp directory
+HOME_EMACS_SITE_LISP="$HOME_EMACS_INSTALL_ROOT/site-lisp"
+echo -n "create site-lisp director $HOME_EMACS_SITE_LISP ... "
+mkdir -p "$HOME_EMACS_SITE_LISP" || exit 1
+echo "ok"
+
+template_modules "$HOME_EMACS_TEMPLATE_DIR" "$HOME_EMACS_SITE_LISP" || exit 1
+
+echo "copy *.el files ... "
+cp -v "$HOME_EMACS_TEMPLATE_DIR"/*.el "$HOME_EMACS_SITE_LISP/"
+echo "ok"
+
+# make start script
+echo -n "create start script ... "
+sed "s,@HOME_EMACS_SITE_LISP@,$HOME_EMACS_SITE_LISP,g" "$HOME_EMACS_TEMPLATE_DIR/home-emacs-daemon.in" > "$HOME_EMACS_INSTALL_ROOT/home-emacs-daemon" || exit 1
+chmod +x "$HOME_EMACS_INSTALL_ROOT/home-emacs-daemon" || exit 1
+echo "ok"
+
+# install emacs packages and exit
+echo "install pakcages $HOME_EMACS_SITE_LISP/home-install-packages.el ... "
+emacs24 -l "$HOME_EMACS_SITE_LISP/home-install-packages.el"
+echo "ok"
+
