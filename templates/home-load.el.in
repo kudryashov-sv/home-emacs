@@ -15,4 +15,7 @@
 (load-library "home-flycheck-settings")
 (load-library "home-projectile-settings")
 (load-library "home-org")
+(load-library "home-markdown")
+(load-library "home-fix-ido")
+(load-library "home-smex")
 
