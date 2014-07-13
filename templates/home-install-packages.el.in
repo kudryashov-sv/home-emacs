@@ -10,6 +10,9 @@
 (package-install 'projectile)
 (package-install 'google-this)
 (package-install 'flycheck)
+(package-install 'erlang)
+(package-install 'powerline)
+(package-install 'yasnippet)
 
 (kill-emacs)
 

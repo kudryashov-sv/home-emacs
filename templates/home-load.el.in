@@ -1,4 +1,3 @@
-
 ;; add common load path
 (add-to-list 'load-path "@HOME_EMACS_SITE_LISP@")
 
@@ -8,9 +7,12 @@
 ;; load customizations
 (load-library "home-emacs-custom")
 
+;; common init
+(load-library "home-common-init")
+
 ;; configure packages
 (load-library "home-emacs-custom")
 (load-library "home-flycheck-settings")
-;; (load-library "home-google-this")
 (load-library "home-projectile-settings")
+(load-library "home-org")
 

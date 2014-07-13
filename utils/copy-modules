@@ -5,7 +5,7 @@
 template_module() {
     module=`basename $1 .el.in`
     echo -n "Create $2/$module.el ... "
-    sed  "s,@HOME_EMACS_SITE_LISP@,$HOME_EMACS_SITE_LISP,g" "$1" > "$2/$module.el" || exit 1
+    sed  "s,@HOME_EMACS_SITE_LISP@,$HOME_EMACS_SITE_LISP,g; s,@HOME_EMACS_ORG_DEFAULT_FILE@,$HOME_EMACS_ORG_DEFAULT_FILE,g" "$1" > "$2/$module.el" || exit 1
 echo "OK"    
 }
 
