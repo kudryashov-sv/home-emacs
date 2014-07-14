@@ -18,4 +18,6 @@
 (load-library "home-markdown")
 (load-library "home-fix-ido")
 (load-library "home-smex")
+(load-library "home-erlang-mode")
+(load-library "home-distel")
 

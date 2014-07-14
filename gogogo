@@ -30,3 +30,7 @@ echo "OK"
 # install emacs packages and exit
 . ./utils/install-packages
 
+# install custom packages
+
+. ./utils/distel-install.sh
+
