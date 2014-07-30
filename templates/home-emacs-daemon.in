@@ -1,4 +1,0 @@
-#!/bin/bash
-
-(cd "$HOME"; emacs --daemon -l @HOME_EMACS_SITE_LISP@/home-load.el 2&> /dev/null)
-
