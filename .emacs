@@ -29,6 +29,7 @@
  '(
    powerline
    anti-zenburn-theme
+   solarized-theme
    projectile
    google-this
    flycheck
@@ -39,6 +40,7 @@
    js2-mode
    flx-ido
    smex
+   powerline
    ))
 
 ;; common settings
@@ -68,7 +70,7 @@
 (scroll-bar-mode -1)
 
 ;; load zenburn
-(load-theme 'anti-zenburn t)
+(load-theme 'solarized-light t)
 
 ;; auto-save options
 (setq backup-directory-alist
@@ -133,8 +135,19 @@
   (local-set-key "\C-c\C-d\C-h" 'erlang-man-function)
   )
 
-;; Some Erlang customizations
 (add-hook 'erlang-mode-hook 'my-erlang-mode-hook)
+
+;; erlang distel
+;; (add-to-list 'load-path "~/.emacs.d/share/distel/elisp")
+;; (require 'distel)
+;; (distel-setup)
+
+;; disable guru mode
+(setq prelude-guru nil)
+
+;; yasnippet
+(require 'yasnippet) ;; not yasnippet-bundle
+(yas-global-mode 1)
 
 (provide '.emacs)
 
