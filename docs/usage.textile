@@ -1,0 +1,9 @@
+---
+layout: post
+---
+
+h2. How to install and use 'home-emacs'
+{% highlight bash %}
+curl -L  "https://raw.githubusercontent.com/kudryashov-sv/home-emacs/master/clean-ubuntu-install.sh" | sh
+{% endhighlight %}
+

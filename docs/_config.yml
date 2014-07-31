@@ -1,0 +1,12 @@
+# Site settings
+title: Easy emacs installation
+email: kudryashov-sv@yandex.ru
+description: "Everybody looking for something"
+baseurl: ""
+url: "http://kudryashov-sv.github.io"
+twitter_username: 
+github_username:  kudryashov-sv
+
+# Build settings
+markdown: kramdown
+permalink: pretty
