@@ -10,18 +10,18 @@ cd "$tmp_dir"
 git clone https://github.com/massemanet/distel.git ./distel
 
 cd ./distel
-export prefix="$HOME_EMACS_SITE_LISP"
+export prefix="~/.emacs.d/"
 echo "Distel install prefix=$prefix"
 
 make -e install
 
-cd -
+#cd -
 
-rm -rf "$tmp_dir"
+#rm -rf "$tmp_dir"
 
-echo "(add-to-list 'load-path \"$HOME_EMACS_SITE_LISP/share/distel/elisp\")
-(require 'distel)
-(distel-setup)" > "$HOME_EMACS_SITE_LISP/home-distel.el"
+#echo "(add-to-list 'load-path \"$HOME_EMACS_SITE_LISP/share/distel/elisp\")
+#(require 'distel)
+#(distel-setup)" > "$HOME_EMACS_SITE_LISP/home-distel.el"
 
 echo "Distel installed"
 
