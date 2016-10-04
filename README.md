@@ -1,2 +1,2 @@
-Easy emacs24 install
+Not so easy emacs24 install
 ====================
